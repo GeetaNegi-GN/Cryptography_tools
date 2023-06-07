@@ -1,7 +1,73 @@
-* {
+ * {
   margin: 0;
   padding: 0;
+
+}
+/* 
+#BFFCF9 for background
+#000000 nav
+ #00C9C8
+ #47817F*/
+
+/* Navbar */
+
+.navBar{
+  display: flex ;  
+  width: 100%;
+  height: 50px;
+  align-items: center;
+   justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  cursor: pointer ;
+background-color: #000000;
+color: white;
 }
 
+.logo{
+  width: 20%;
+    display: flex;
+    justify-content: left;
 
+
+ font-size: 15pt;
+ font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.menu{
+  width: 60%;
+  display: flex;
+  
+  justify-content: center;
+  
+}
+ul{
+  display: inline;
+ justify-content: space-evenly;
+
+}
+li{
+
+  list-style: none;
+  display: inline;
+  padding: 0 25px 0 25px;
+
+
+}
+
+a{
+  color: white;
+  text-decoration: none;
+} 
+
+.profile{
+  width: 20%;
+    display: flex;
+    justify-content: right;
+   
+
+ font-size: 15pt;
+ font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
