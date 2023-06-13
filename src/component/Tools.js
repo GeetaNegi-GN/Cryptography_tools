@@ -1,10 +1,12 @@
 import React from "react";
+import "../pages/Style.css";
+import { Link } from "react-router-dom";
 
 const Tools = () => {
   return (
-    <div className="container">
-      <h1>CAESAR CIPHER</h1>
-    </div>
+    <>
+      <h1>Tools</h1>
+    </>
   );
 };
 

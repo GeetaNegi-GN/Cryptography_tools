@@ -16,6 +16,9 @@ const Header = () => {
             <a href="/tools">Tools</a>
           </li>
           <li>
+            <a href="/psdManager">Password Manager</a>
+          </li>
+          <li>
             <a href="/feedback">Feedback</a>
           </li>
         </ul>

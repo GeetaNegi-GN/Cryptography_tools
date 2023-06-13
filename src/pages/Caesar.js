@@ -1,8 +1,8 @@
 import React from "react";
-import "Style.css";
+
 const Caesar = () => {
   return (
-    <div id="caesar" class="container">
+    <div id="caesar" className="container">
       <h1>Caesar Cipher App</h1>
       <div id="app-container">
         <textarea name="" id="text"></textarea>

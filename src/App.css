@@ -10,6 +10,9 @@
  #47817F*/
 
 /* Navbar */
+body{
+  background: #47817F;
+}
 
 .navBar{
   display: flex ;  
@@ -71,3 +74,28 @@ a{
  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+/* home */
+
+h1{
+ text-align: center; 
+}
+
+.imgContainer{
+  display: inline;
+  position: fixed;
+  padding: 40px;
+}
+.imgContainer img{
+  
+  width: 700px;
+  height: 550px;
+}
+.textContainer{
+  
+  display: inline;
+  position: fixed;
+  width: 700px;
+  height: 550px;
+  top: 250px;
+  padding-left: 800px;
+}
