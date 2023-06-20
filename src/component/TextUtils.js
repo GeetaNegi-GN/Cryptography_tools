@@ -2,28 +2,46 @@ import React, { useState } from "react";
 
 export default function TextForm(props) {
   const handleUpClick = () => {
-    //console.log("Uppercase was clicked" + text);
     let newText = text.toUpperCase();
     setText(newText);
-    props.showAlert("Converted to uppercase", "success");
   };
   const handleLoClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
-    props.showAlert("Converted to lowercase", "success");
   };
   const handleOnChange = (event) => {
     setText(event.target.value);
   };
 
-  const handleCopy = () => {
-    //var text = document.getElementById("myBox")
-    //text.select();
-    navigator.clipboard.writeText(text);
-    //document.getSelection().removeAllRanges();
-    props.showAlert("Copied to clipboard", "success");
+  const handleClearClick = () => {
+    let newText = "";
+    setText(newText);
   };
 
+  const handleCopy = () => {
+    navigator.clipboard.writeText(text);
+  };
+  const handleExtraSpaces = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "));
+  };
+
+  const handleReplace = () => {
+    let replace = prompt("Which word You Want To Replace?");
+    let replaceWith = prompt("Replace With?");
+    let newText = text.replaceAll(replace, replaceWith);
+    setText(newText);
+  };
+
+  const handleBinaryClick = () => {
+    let binaryText = "";
+    for (let i = 0; i < text.length; i++) {
+      const charCode = text.charCodeAt(i);
+      const binary = charCode.toString(2);
+      binaryText += binary + " ";
+    }
+    setText(binaryText.trim());
+  };
   const [text, setText] = useState("");
 
   return (
@@ -37,31 +55,59 @@ export default function TextForm(props) {
               id="myBox"
               value={text}
               onChange={handleOnChange}
-              cols="40"
-              rows="8"
+              cols="80"
+              rows="10"
             ></textarea>
           </div>
 
           <button
             disabled={text.length === 0}
-            className="btn btn-primary mx-1 my-1"
+            className="tU-btn"
             onClick={handleUpClick}
           >
             Convert to UPPERCASE
           </button>
           <button
             disabled={text.length === 0}
-            className="btn btn-primary mx-1 my-1 "
+            className="tU-btn"
             onClick={handleLoClick}
           >
             Convert to lowercase
           </button>
           <button
             disabled={text.length === 0}
-            className="btn btn-primary mx-1 my-1 "
+            className="tU-btn"
             onClick={handleCopy}
           >
-            Copy to Clipboard
+            Copy text
+          </button>
+          <button
+            disabled={text.length === 0}
+            className="tU-btn"
+            onClick={handleClearClick}
+          >
+            Clear Text
+          </button>
+          <button
+            disabled={text.length === 0}
+            className="tU-btn"
+            onClick={handleExtraSpaces}
+          >
+            Remove Extra Spaces
+          </button>
+          <button
+            disabled={text.length === 0}
+            className="tU-btn"
+            onClick={handleReplace}
+          >
+            Replace word
+          </button>
+          <button
+            disabled={text.length === 0}
+            className="tU-btn"
+            onClick={handleBinaryClick}
+          >
+            Text to Binary
           </button>
         </div>
         <div className="container my-3">
@@ -82,6 +128,7 @@ export default function TextForm(props) {
             Minutes read
           </p>
           <h2>Preview</h2>
+
           <p>{text.length > 0 ? text : "Nothing to preview"}</p>
         </div>
       </div>
