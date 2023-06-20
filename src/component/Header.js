@@ -1,7 +1,4 @@
 import React from "react";
-import Home from "./Home";
-import Tools from "./Tools";
-import Feedback from "./Feedback";
 
 const Header = () => {
   return (
@@ -13,7 +10,10 @@ const Header = () => {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/tools">Tools</a>
+            <a href="/TextForm">TextUtils</a>
+          </li>
+          <li>
+            <a href="/psdGenerator">Password Generator</a>
           </li>
           <li>
             <a href="/psdManager">Password Manager</a>

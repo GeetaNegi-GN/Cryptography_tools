@@ -78,6 +78,7 @@ a{
 
 h1{
  text-align: center; 
+ margin: 20px 0px;
 }
 
 .imgContainer{
@@ -99,3 +100,12 @@ h1{
   top: 250px;
   padding-left: 800px;
 }
+
+/* TextUtils*/
+
+.textutil-container{
+  display: grid;
+  justify-content: center;
+  
+}
+
