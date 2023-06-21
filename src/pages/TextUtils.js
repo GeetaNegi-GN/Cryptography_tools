@@ -42,13 +42,21 @@ export default function TextForm(props) {
     }
     setText(binaryText.trim());
   };
+
+  const handleHexClick = () => {
+    let binaryText = "";
+    for (let i = 0; i < text.length; i++) {
+      binaryText += " " + text.charCodeAt(i).toString(16);
+    }
+    setText(binaryText.trim());
+  };
   const [text, setText] = useState("");
 
   return (
     <>
+      <h1>{props.heading}</h1>
       <div className="textutil-container">
         <div className="tU-container">
-          <h1>{props.heading}</h1>
           <div className="tU-form">
             <textarea
               className="form-control"
@@ -59,56 +67,65 @@ export default function TextForm(props) {
               rows="10"
             ></textarea>
           </div>
+          <div className="tU-btn-container">
+            <button
+              disabled={text.length === 0}
+              className="tU-btn"
+              onClick={handleUpClick}
+            >
+              Convert to UPPERCASE
+            </button>
+            <button
+              disabled={text.length === 0}
+              className="tU-btn"
+              onClick={handleLoClick}
+            >
+              Convert to lowercase
+            </button>
+            <button
+              disabled={text.length === 0}
+              className="tU-btn"
+              onClick={handleCopy}
+            >
+              Copy text
+            </button>
 
-          <button
-            disabled={text.length === 0}
-            className="tU-btn"
-            onClick={handleUpClick}
-          >
-            Convert to UPPERCASE
-          </button>
-          <button
-            disabled={text.length === 0}
-            className="tU-btn"
-            onClick={handleLoClick}
-          >
-            Convert to lowercase
-          </button>
-          <button
-            disabled={text.length === 0}
-            className="tU-btn"
-            onClick={handleCopy}
-          >
-            Copy text
-          </button>
-          <button
-            disabled={text.length === 0}
-            className="tU-btn"
-            onClick={handleClearClick}
-          >
-            Clear Text
-          </button>
-          <button
-            disabled={text.length === 0}
-            className="tU-btn"
-            onClick={handleExtraSpaces}
-          >
-            Remove Extra Spaces
-          </button>
-          <button
-            disabled={text.length === 0}
-            className="tU-btn"
-            onClick={handleReplace}
-          >
-            Replace word
-          </button>
-          <button
-            disabled={text.length === 0}
-            className="tU-btn"
-            onClick={handleBinaryClick}
-          >
-            Text to Binary
-          </button>
+            <button
+              disabled={text.length === 0}
+              className="tU-btn"
+              onClick={handleClearClick}
+            >
+              Clear Text
+            </button>
+            <button
+              disabled={text.length === 0}
+              className="tU-btn"
+              onClick={handleExtraSpaces}
+            >
+              Remove Extra Spaces
+            </button>
+            <button
+              disabled={text.length === 0}
+              className="tU-btn"
+              onClick={handleReplace}
+            >
+              Replace word
+            </button>
+            <button
+              disabled={text.length === 0}
+              className="tU-btn"
+              onClick={handleBinaryClick}
+            >
+              Text to Binary
+            </button>
+            <button
+              disabled={text.length === 0}
+              className="tU-btn"
+              onClick={handleHexClick}
+            >
+              Text to Hexdecimal
+            </button>
+          </div>
         </div>
         <div className="container my-3">
           <h2>Your text summary</h2>

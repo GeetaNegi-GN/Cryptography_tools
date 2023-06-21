@@ -1,11 +1,11 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./component/Home";
-import Feedback from "./component/Feedback";
-import Header from "./component/Header";
-import TextForm from "./component/TextUtils";
-import PsdManager from "./component/PsdManager";
-import PsdGenerator from "./component/PsdGenerator";
+import Home from "./pages/Home";
+import Header from "./pages/Header";
+import PsdGenerator from "./pages/PsdGenerator";
+import PsdManager from "./pages/PsdManager";
+import Feedback from "./pages/Feedback";
+import TextForm from "./pages/TextUtils";
 
 function App() {
   return (
