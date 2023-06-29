@@ -7,6 +7,8 @@ import PsdManager from "./pages/PsdManager";
 import Feedback from "./pages/Feedback";
 import TextForm from "./pages/TextUtils";
 
+import Crypt from "./pages/Crypt";
+
 function App() {
   return (
     <BrowserRouter>
@@ -23,6 +25,8 @@ function App() {
           }
         />
         <Route exact path={"/psdGenerator"} element={<PsdGenerator />} />
+        <Route exact path={"/crypt"} element={<Crypt />} />
+
         <Route exact path={"/psdManager"} element={<PsdManager />} />
         <Route exact path={"/feedback"} element={<Feedback />} />
       </Routes>
