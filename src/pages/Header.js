@@ -16,7 +16,7 @@ const Header = () => {
             <a href="/psdGenerator">Password Generator</a>
           </li>
           <li>
-            <a href="/crypt">Encyrpt-decyrpt</a>
+            <a href="/crypt">Encoder/Decoder</a>
           </li>
           <li>
             <a href="/psdManager">Password Manager</a>

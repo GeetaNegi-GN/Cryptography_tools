@@ -15,10 +15,18 @@ export default function Crypt() {
     let encrypted = "";
     if (algorithm === "aes") {
       encrypted = CryptoJS.AES.encrypt(text, "secret-key").toString();
-    } else if (algorithm === "md5") {
-      encrypted = CryptoJS.MD5(text).toString();
-    } else if (algorithm === "des") {
+    }
+    // else if (algorithm === "md5") {
+    //   encrypted = CryptoJS.MD5(text).toString();
+    // }
+    else if (algorithm === "des") {
       encrypted = CryptoJS.DES.encrypt(text, "secret-key").toString();
+    } else if (algorithm === "tripleDes") {
+      encrypted = CryptoJS.TripleDES.encrypt(text, "secret-key").toString();
+    } else if (algorithm === "rabbit") {
+      encrypted = CryptoJS.Rabbit.encrypt(text, "secret-key").toString();
+    } else if (algorithm === "rc4") {
+      encrypted = CryptoJS.RC4.encrypt(text, "secret-key").toString();
     }
     setEncryptedText(encrypted);
   };
@@ -29,36 +37,84 @@ export default function Crypt() {
       decrypted = CryptoJS.AES.decrypt(encryptedText, "secret-key").toString(
         CryptoJS.enc.Utf8
       );
-    } else if (algorithm === "md5") {
-      // MD5 is a one-way hash function, so decryption is not possible.
-      decrypted = "Decryption not possible for MD5.";
-    } else if (algorithm === "des") {
+    }
+    // else if (algorithm === "md5") {
+    //   // MD5 is a one-way hash function, so decryption is not possible.
+    //   decrypted = "Decryption not possible for MD5.";
+    // }
+    else if (algorithm === "des") {
       decrypted = CryptoJS.DES.decrypt(encryptedText, "secret-key").toString(
+        CryptoJS.enc.Utf8
+      );
+    } else if (algorithm === "tripleDes") {
+      decrypted = CryptoJS.TripleDES.decrypt(
+        encryptedText,
+        "secret-key"
+      ).toString(CryptoJS.enc.Utf8);
+    } else if (algorithm === "rabbit") {
+      decrypted = CryptoJS.Rabbit.decrypt(encryptedText, "secret-key").toString(
+        CryptoJS.enc.Utf8
+      );
+    } else if (algorithm === "rc4") {
+      decrypted = CryptoJS.RC4.decrypt(encryptedText, "secret-key").toString(
         CryptoJS.enc.Utf8
       );
     }
     setDecryptedText(decrypted);
   };
 
+  const handleClearClick = () => {
+    let newText = "";
+    setText(newText);
+  };
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(text);
+  };
+
   return (
     <>
       <h1>Encoder-Decoder</h1>
 
-      <div>
-        <label>
-          Text:
-          <input
+      <div className="crypt-container">
+        <div className="crypt-textarea">
+          Enter the text
+          <textarea
             type="text"
             value={text}
             onChange={(e) => setText(e.target.value)}
-          />
-        </label>
+            cols="80"
+            rows="5"
+          ></textarea>
+        </div>
         <div className="crypt-btn">
-          <button disabled={!algorithm} onClick={encryptText}>
+          <button
+            className="crypt-text-btn"
+            disabled={!algorithm}
+            onClick={encryptText}
+          >
             Encrypt
           </button>
-          <button disabled={!algorithm} onClick={decryptText}>
+          <button
+            className="crypt-text-btn"
+            disabled={!algorithm}
+            onClick={decryptText}
+          >
             Decrypt
+          </button>
+          <button
+            disabled={text.length === 0}
+            className="tU-btn"
+            onClick={handleCopy}
+          >
+            Copy text
+          </button>
+          <button
+            disabled={text.length === 0}
+            className="tU-btn"
+            onClick={handleClearClick}
+          >
+            Clear Text
           </button>
         </div>
 
@@ -73,22 +129,40 @@ export default function Crypt() {
         </div>
         <div>
           <button
-            className="crypt-btn"
+            className="tU-btn"
             onClick={() => handleAlgorithmClick("aes")}
           >
             AES
           </button>
-          <button
-            className="crypt-btn"
+          {/* <button
+            className="tU-btn"
             onClick={() => handleAlgorithmClick("md5")}
           >
             MD5
-          </button>
+          </button> */}
           <button
-            className="crypt-btn"
+            className="tU-btn"
             onClick={() => handleAlgorithmClick("des")}
           >
             DES
+          </button>
+          <button
+            className="tU-btn"
+            onClick={() => handleAlgorithmClick("tripleDes")}
+          >
+            TripleDES
+          </button>
+          <button
+            className="tU-btn"
+            onClick={() => handleAlgorithmClick("rabbit")}
+          >
+            Rabbit
+          </button>
+          <button
+            className="tU-btn"
+            onClick={() => handleAlgorithmClick("rc4")}
+          >
+            RC4
           </button>
         </div>
       </div>

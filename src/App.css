@@ -115,7 +115,8 @@ h1{
 }
 
 .tU-btn{
-  margin: 2px;
+  margin: 2px 6px;
+  padding: 4px;
   background-color:  #00C9C8
 }
 .tU-btn-container {
