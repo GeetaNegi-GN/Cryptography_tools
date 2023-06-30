@@ -1,25 +1,60 @@
 import React, { useState } from "react";
 import CryptoJS from "crypto-js";
 
-function Crypt() {
-  const [text, setText] = useState("");
-  const [algorithm, setAlgorithm] = useState("");
-  const [encryptedText, setEncryptedText] = useState("");
-  const [decryptedText, setDecryptedText] = useState("");
+const [text, setText] = useState("");
+const [algorithm, setAlgorithm] = useState("");
+const [encryptedText, setEncryptedText] = useState("");
+const [decryptedText, setDecryptedText] = useState("");
 
-  const handleAlgorithmClick = (selectedAlgorithm) => {
-    setAlgorithm(selectedAlgorithm);
-    setEncryptedText("");
-    setDecryptedText("");
-  };
+const handleAlgorithmClick = (selectedAlgorithm) => {
+  setAlgorithm(selectedAlgorithm);
+};
 
+function Hash() {
   const encryptText = () => {
     let encrypted = "";
     if (algorithm === "aes") {
       encrypted = CryptoJS.AES.encrypt(text, "secret-key").toString();
     } else if (algorithm === "md5") {
       encrypted = CryptoJS.MD5(text).toString();
-    } else if (algorithm === "des") {
+    }
+    setEncryptedText(encrypted);
+  };
+
+  return (
+    <>
+      <div className="crypt-textarea">
+        Enter the text
+        <textarea
+          type="text"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          cols="80"
+          rows="5"
+        ></textarea>
+      </div>
+      <div className="crypt-btn">
+        <button
+          className="crypt-text-btn"
+          disabled={!algorithm}
+          onClick={encryptText}
+        >
+          Encrypt
+        </button>
+      </div>
+
+      <div>
+        <h3>Encrypted Text:</h3>
+        <p>{encryptedText}</p>
+      </div>
+    </>
+  );
+}
+
+function Block() {
+  const encryptText = () => {
+    let encrypted = "";
+    if (algorithm === "des") {
       encrypted = CryptoJS.DES.encrypt(text, "secret-key").toString();
     } else if (algorithm === "tripleDes") {
       encrypted = CryptoJS.TripleDES.encrypt(text, "rest").toString();
@@ -42,16 +77,12 @@ function Crypt() {
       }).toString();
     }
     setEncryptedText(encrypted);
-    setDecryptedText("");
   };
 
   const decryptText = () => {
     let decrypted = "";
-    if (algorithm === "aes") {
-      decrypted = CryptoJS.AES.decrypt(encryptedText, "secret-key").toString(
-        CryptoJS.enc.Utf8
-      );
-    } else if (algorithm === "des") {
+
+    if (algorithm === "des") {
       decrypted = CryptoJS.DES.decrypt(encryptedText, "secret-key").toString(
         CryptoJS.enc.Utf8
       );
@@ -83,34 +114,68 @@ function Crypt() {
 
   return (
     <>
-      <h1>Encoder/Decoder</h1>
       <div className="crypt-textarea">
-        <label>
-          Text:
-          <input
-            type="text"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-        </label>
-        <div>
-          {<textarea value={encryptedText} readOnly />}
-          <button disabled={!algorithm} onClick={encryptText}>
-            Encrypt
-          </button>
+        Enter the text
+        <textarea
+          type="text"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          cols="80"
+          rows="5"
+        ></textarea>
+      </div>
+      <div className="crypt-btn">
+        <button
+          className="crypt-text-btn"
+          disabled={!algorithm}
+          onClick={encryptText}
+        >
+          Encrypt
+        </button>
+        <button
+          className="crypt-text-btn"
+          disabled={!algorithm}
+          onClick={decryptText}
+        >
+          Decrypt
+        </button>
+      </div>
 
-          {(algorithm === "aes" ||
-            algorithm === "des" ||
-            algorithm === "tripleDes" ||
-            algorithm === "rabbit" ||
-            algorithm === "rc4" ||
-            algorithm === "rc4drop" ||
-            algorithm === "cfb") && (
-            <>
-              {<textarea value={decryptedText} readOnly />}
-              <button onClick={decryptText}>Decrypt</button>
-            </>
-          )}
+      <div>
+        <h3>Encrypted Text:</h3>
+        <p>{encryptedText}</p>
+      </div>
+      <div>
+        <h3>Decrypted Text:</h3>
+        <p>{decryptedText}</p>
+      </div>
+    </>
+  );
+}
+
+export default function Crypt() {
+  return (
+    <>
+      <h1>Encoder-Decoder</h1>
+
+      <div className="crypt-container">
+        <div className="crypt-btn">
+          <Hash />
+          <Block />
+          {/* <button
+            disabled={text.length === 0}
+            className="tU-btn"
+            onClick={handleCopy}
+          >
+            Copy text
+          </button>
+          <button
+            disabled={text.length === 0}
+            className="tU-btn"
+            onClick={handleClearClick}
+          >
+            Clear Text
+          </button> */}
         </div>
 
         <div>
@@ -207,5 +272,3 @@ function Crypt() {
     </>
   );
 }
-
-export default Crypt;

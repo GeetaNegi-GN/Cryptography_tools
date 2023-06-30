@@ -37,6 +37,10 @@ color: white;
  font-size: 15pt;
  font-family: Georgia, 'Times New Roman', Times, serif;
 }
+.sidebar{
+  flex: 2;
+  flex-direction: column;
+}
 
 .menu{
   width: 60%;

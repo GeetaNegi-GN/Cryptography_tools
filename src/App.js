@@ -8,6 +8,7 @@ import Feedback from "./pages/Feedback";
 import TextForm from "./pages/TextUtils";
 
 import Crypt from "./pages/Crypt";
+import Sidebar from "./pages/Sidebar";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route exact path={"/psdManager"} element={<PsdManager />} />
         <Route exact path={"/feedback"} element={<Feedback />} />
       </Routes>
+      <Sidebar />
     </BrowserRouter>
   );
 }
