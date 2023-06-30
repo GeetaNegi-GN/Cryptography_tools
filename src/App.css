@@ -37,9 +37,21 @@ color: white;
  font-size: 15pt;
  font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.sidebar{
-  flex: 2;
+
+ .right-menu {
+  display: flex;
+  position: fixed;
   flex-direction: column;
+
+  background: black;
+  top: 50%;
+  width: 45px;
+  height: 180px;
+  left: 97%
+}
+.sidebar-list {
+  padding: 25px 0px 25px;
+  transform: rotate(90deg);
 }
 
 .menu{
@@ -123,7 +135,13 @@ h1{
   padding: 4px;
   background-color:  #00C9C8
 }
-.tU-btn-container {
+.psd-container {
   
- 
+  display: grid;
+  justify-content: center;
+}
+.crypt-container {
+  
+  display: grid;
+  justify-content: center;
 }

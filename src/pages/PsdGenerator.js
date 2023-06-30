@@ -48,52 +48,56 @@ function PsdGenerator() {
   };
 
   return (
-    <div>
-      <h2>Random Password Generator</h2>
+    <>
+      <h1>Random Password Generator</h1>
 
-      <label>
-        Password Length:
-        <input
-          type="number"
-          value={passwordLength}
-          onChange={handlePasswordLengthChange}
-        />
-      </label>
+      <div className="psd-container">
+        <label>
+          Password Length:
+          <input
+            type="number"
+            value={passwordLength}
+            onChange={handlePasswordLengthChange}
+          />
+        </label>
 
-      <label>
-        Include Alphabets:
-        <input
-          type="checkbox"
-          checked={includeAlphabets}
-          onChange={handleIncludeAlphabetsChange}
-        />
-      </label>
+        <label>
+          Include Alphabets:
+          <input
+            type="checkbox"
+            checked={includeAlphabets}
+            onChange={handleIncludeAlphabetsChange}
+          />
+        </label>
 
-      <label>
-        Include Numbers:
-        <input
-          type="checkbox"
-          checked={includeNumbers}
-          onChange={handleIncludeNumbersChange}
-        />
-      </label>
+        <label>
+          Include Numbers:
+          <input
+            type="checkbox"
+            checked={includeNumbers}
+            onChange={handleIncludeNumbersChange}
+          />
+        </label>
 
-      <label>
-        Include Symbols:
-        <input
-          type="checkbox"
-          checked={includeSymbols}
-          onChange={handleIncludeSymbolsChange}
-        />
-      </label>
+        <label>
+          Include Symbols:
+          <input
+            type="checkbox"
+            checked={includeSymbols}
+            onChange={handleIncludeSymbolsChange}
+          />
+        </label>
 
-      <button onClick={generatePassword}>Generate Password</button>
+        <button className="tU-btn" onClick={generatePassword}>
+          Generate Password
+        </button>
 
-      <div>
-        <h3>Generated Password:</h3>
-        <p>{generatedPassword}</p>
+        <div>
+          <h3>Generated Password:</h3>
+          <p>{generatedPassword}</p>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

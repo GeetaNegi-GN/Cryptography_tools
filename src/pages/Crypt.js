@@ -84,16 +84,18 @@ function Crypt() {
   return (
     <>
       <h1>Encoder/Decoder</h1>
-      <div className="crypt-textarea">
-        <label>
-          Text:
-          <input
-            type="text"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-        </label>
-        <div>
+      <div className="crypt-container">
+        <div className="crypt-textarea">
+          <label>
+            Text:
+            <input
+              type="text"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            />
+          </label>
+        </div>
+        <div className="crypt-output">
           {<textarea value={encryptedText} readOnly />}
           <button disabled={!algorithm} onClick={encryptText}>
             Encrypt
@@ -113,7 +115,7 @@ function Crypt() {
           )}
         </div>
 
-        <div>
+        <div className="crypt-btn">
           <p>
             Hashing:
             <button

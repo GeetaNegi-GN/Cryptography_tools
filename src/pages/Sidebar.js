@@ -4,10 +4,10 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <ul className="right-menu">
-        <li>
+        <li className="sidebar-list">
           <a href="/">Home</a>
         </li>
-        <li>
+        <li className="sidebar-list">
           <a href="/feedback">Feedback</a>
         </li>
       </ul>
