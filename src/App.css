@@ -39,19 +39,25 @@ color: white;
 }
 
  .right-menu {
+
+
   display: flex;
   position: fixed;
   flex-direction: column;
 
   background: black;
-  top: 50%;
+  top: 200px;
   width: 45px;
   height: 180px;
-  left: 97%
+  right: 0px;
 }
 .sidebar-list {
-  padding: 25px 0px 25px;
-  transform: rotate(90deg);
+  
+  line-height: 26px;
+  text-align: center;
+  transform: rotate(-90deg);
+padding: 25px 0px 25px;
+  
 }
 
 .menu{

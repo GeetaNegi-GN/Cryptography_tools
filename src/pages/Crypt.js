@@ -15,10 +15,42 @@ function Crypt() {
 
   const encryptText = () => {
     let encrypted = "";
-    if (algorithm === "aes") {
-      encrypted = CryptoJS.AES.encrypt(text, "secret-key").toString();
-    } else if (algorithm === "md5") {
+    if (algorithm === "md5") {
       encrypted = CryptoJS.MD5(text).toString();
+    } else if (algorithm === "sha1") {
+      encrypted = CryptoJS.SHA1(text).toString();
+    } else if (algorithm === "sha256") {
+      encrypted = CryptoJS.SHA256(text).toString();
+    } else if (algorithm === "sha512") {
+      encrypted = CryptoJS.SHA512(text).toString();
+    } else if (algorithm === "sha3") {
+      encrypted = CryptoJS.SHA3(text).toString();
+    } else if (algorithm === "ripemd") {
+      encrypted = CryptoJS.RIPEMD160(text).toString();
+    } else if (algorithm === "cbc") {
+      encrypted = CryptoJS.AES.encrypt(text, "secret-key", {
+        padding: CryptoJS.pad.AnsiX923,
+      }).toString();
+    } else if (algorithm === "cfb") {
+      encrypted = CryptoJS.AES.encrypt(text, "secret-key", {
+        mode: CryptoJS.mode.CFB,
+        padding: CryptoJS.pad.AnsiX923,
+      }).toString();
+    } else if (algorithm === "ctr") {
+      encrypted = CryptoJS.AES.encrypt(text, "secret-key", {
+        mode: CryptoJS.mode.CTR,
+        padding: CryptoJS.pad.AnsiX923,
+      }).toString();
+    } else if (algorithm === "ofb") {
+      encrypted = CryptoJS.AES.encrypt(text, "secret-key", {
+        mode: CryptoJS.mode.OFB,
+        padding: CryptoJS.pad.AnsiX923,
+      }).toString();
+    } else if (algorithm === "ecb") {
+      encrypted = CryptoJS.AES.encrypt(text, "secret-key", {
+        mode: CryptoJS.mode.ECB,
+        padding: CryptoJS.pad.AnsiX923,
+      }).toString();
     } else if (algorithm === "des") {
       encrypted = CryptoJS.DES.encrypt(text, "secret-key").toString();
     } else if (algorithm === "tripleDes") {
@@ -31,15 +63,6 @@ function Crypt() {
       }).toString();
     } else if (algorithm === "rc4") {
       encrypted = CryptoJS.RC4.encrypt(text, "secret-key").toString();
-    } else if (algorithm === "rc4") {
-      encrypted = CryptoJS.RC4.encrypt(text, "secret-key").toString();
-    } else if (algorithm === "rc4") {
-      encrypted = CryptoJS.RC4.encrypt(text, "secret-key").toString();
-    } else if (algorithm === "cfb") {
-      encrypted = CryptoJS.AES.encrypt(text, "secret-key", {
-        mode: CryptoJS.mode.CFB,
-        padding: CryptoJS.pad.AnsiX923,
-      }).toString();
     }
     setEncryptedText(encrypted);
     setDecryptedText("");
@@ -47,10 +70,30 @@ function Crypt() {
 
   const decryptText = () => {
     let decrypted = "";
-    if (algorithm === "aes") {
+    if (algorithm === "cbc") {
       decrypted = CryptoJS.AES.decrypt(encryptedText, "secret-key").toString(
         CryptoJS.enc.Utf8
       );
+    } else if (algorithm === "cfb") {
+      decrypted = CryptoJS.AES.decrypt(encryptedText, "secret-key", {
+        mode: CryptoJS.mode.CFB,
+        padding: CryptoJS.pad.AnsiX923,
+      }).toString(CryptoJS.enc.Utf8);
+    } else if (algorithm === "ctr") {
+      decrypted = CryptoJS.AES.decrypt(encryptedText, "secret-key", {
+        mode: CryptoJS.mode.CTR,
+        padding: CryptoJS.pad.AnsiX923,
+      }).toString(CryptoJS.enc.Utf8);
+    } else if (algorithm === "ofb") {
+      decrypted = CryptoJS.AES.decrypt(encryptedText, "secret-key", {
+        mode: CryptoJS.mode.OFB,
+        padding: CryptoJS.pad.AnsiX923,
+      }).toString(CryptoJS.enc.Utf8);
+    } else if (algorithm === "ecb") {
+      decrypted = CryptoJS.AES.decrypt(encryptedText, "secret-key", {
+        mode: CryptoJS.mode.ECB,
+        padding: CryptoJS.pad.AnsiX923,
+      }).toString(CryptoJS.enc.Utf8);
     } else if (algorithm === "des") {
       decrypted = CryptoJS.DES.decrypt(encryptedText, "secret-key").toString(
         CryptoJS.enc.Utf8
@@ -72,11 +115,6 @@ function Crypt() {
       decrypted = CryptoJS.RC4.decrypt(encryptedText, "secret-key").toString(
         CryptoJS.enc.Utf8
       );
-    } else if (algorithm === "cfb") {
-      decrypted = CryptoJS.AES.decrypt(encryptedText, "secret-key", {
-        mode: CryptoJS.mode.CFB,
-        padding: CryptoJS.pad.AnsiX923,
-      }).toString(CryptoJS.enc.Utf8);
     }
     setDecryptedText(decrypted);
   };
@@ -101,7 +139,11 @@ function Crypt() {
             Encrypt
           </button>
 
-          {(algorithm === "aes" ||
+          {(algorithm === "cbc" ||
+            algorithm === "cfb" ||
+            algorithm === "ctr" ||
+            algorithm === "ofb" ||
+            algorithm === "ecb" ||
             algorithm === "des" ||
             algorithm === "tripleDes" ||
             algorithm === "rabbit" ||
@@ -126,48 +168,66 @@ function Crypt() {
             </button>
             <button
               className="tU-btn"
-              onClick={() => handleAlgorithmClick("md5")}
+              onClick={() => handleAlgorithmClick("sha1")}
             >
-              MD5
+              SHA1
             </button>
             <button
               className="tU-btn"
-              onClick={() => handleAlgorithmClick("md5")}
+              onClick={() => handleAlgorithmClick("sha256")}
             >
-              MD5
+              SHA256
             </button>
             <button
               className="tU-btn"
-              onClick={() => handleAlgorithmClick("md5")}
+              onClick={() => handleAlgorithmClick("sha512")}
             >
-              MD5
+              SHA512
             </button>
             <button
               className="tU-btn"
-              onClick={() => handleAlgorithmClick("md5")}
+              onClick={() => handleAlgorithmClick("sha3")}
             >
-              MD5
+              SHA3
             </button>
             <button
               className="tU-btn"
-              onClick={() => handleAlgorithmClick("md5")}
+              onClick={() => handleAlgorithmClick("ripemd")}
             >
-              MD5
+              RIPEMD160
             </button>
           </p>
           <p>
             Block Encryption:
             <button
               className="tU-btn"
-              onClick={() => handleAlgorithmClick("aes")}
+              onClick={() => handleAlgorithmClick("cbc")}
             >
-              AES
+              AES(CBC)
             </button>
             <button
               className="tU-btn"
               onClick={() => handleAlgorithmClick("cfb")}
             >
-              CFB
+              AES(CFB)
+            </button>
+            <button
+              className="tU-btn"
+              onClick={() => handleAlgorithmClick("ctr")}
+            >
+              AES(CTR)
+            </button>
+            <button
+              className="tU-btn"
+              onClick={() => handleAlgorithmClick("ofb")}
+            >
+              AES(OFB)
+            </button>
+            <button
+              className="tU-btn"
+              onClick={() => handleAlgorithmClick("ecb")}
+            >
+              AES(ECB)
             </button>
             <button
               className="tU-btn"
