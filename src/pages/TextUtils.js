@@ -54,99 +54,101 @@ export default function TextForm(props) {
 
   return (
     <>
-      <h1>{props.heading}</h1>
-      <div className="textutil-container">
-        <div className="tU-container">
-          <div className="tU-form">
-            <textarea
-              className="form-control"
-              id="myBox"
-              value={text}
-              onChange={handleOnChange}
-              cols="80"
-              rows="10"
-            ></textarea>
-          </div>
-          <div className="tU-btn-container">
-            <button
-              disabled={text.length === 0}
-              className="tU-btn"
-              onClick={handleUpClick}
-            >
-              Convert to UPPERCASE
-            </button>
-            <button
-              disabled={text.length === 0}
-              className="tU-btn"
-              onClick={handleLoClick}
-            >
-              Convert to lowercase
-            </button>
-            <button
-              disabled={text.length === 0}
-              className="tU-btn"
-              onClick={handleCopy}
-            >
-              Copy text
-            </button>
+      <div className="main-container">
+        <h1>{props.heading}</h1>
+        <div className="textutil-container">
+          <div className="tU-container">
+            <div className="tU-form">
+              <textarea
+                className="form-control"
+                id="myBox"
+                value={text}
+                onChange={handleOnChange}
+                cols="80"
+                rows="10"
+              ></textarea>
+            </div>
+            <div className="tU-btn-container">
+              <button
+                disabled={text.length === 0}
+                className="tU-btn"
+                onClick={handleUpClick}
+              >
+                Convert to UPPERCASE
+              </button>
+              <button
+                disabled={text.length === 0}
+                className="tU-btn"
+                onClick={handleLoClick}
+              >
+                Convert to lowercase
+              </button>
+              <button
+                disabled={text.length === 0}
+                className="tU-btn"
+                onClick={handleCopy}
+              >
+                Copy text
+              </button>
 
-            <button
-              disabled={text.length === 0}
-              className="tU-btn"
-              onClick={handleClearClick}
-            >
-              Clear Text
-            </button>
-            <button
-              disabled={text.length === 0}
-              className="tU-btn"
-              onClick={handleExtraSpaces}
-            >
-              Remove Extra Spaces
-            </button>
-            <button
-              disabled={text.length === 0}
-              className="tU-btn"
-              onClick={handleReplace}
-            >
-              Replace word
-            </button>
-            <button
-              disabled={text.length === 0}
-              className="tU-btn"
-              onClick={handleBinaryClick}
-            >
-              Text to Binary
-            </button>
-            <button
-              disabled={text.length === 0}
-              className="tU-btn"
-              onClick={handleHexClick}
-            >
-              Text to Hexdecimal
-            </button>
+              <button
+                disabled={text.length === 0}
+                className="tU-btn"
+                onClick={handleClearClick}
+              >
+                Clear Text
+              </button>
+              <button
+                disabled={text.length === 0}
+                className="tU-btn"
+                onClick={handleExtraSpaces}
+              >
+                Remove Extra Spaces
+              </button>
+              <button
+                disabled={text.length === 0}
+                className="tU-btn"
+                onClick={handleReplace}
+              >
+                Replace word
+              </button>
+              <button
+                disabled={text.length === 0}
+                className="tU-btn"
+                onClick={handleBinaryClick}
+              >
+                Text to Binary
+              </button>
+              <button
+                disabled={text.length === 0}
+                className="tU-btn"
+                onClick={handleHexClick}
+              >
+                Text to Hexdecimal
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="container my-3">
-          <h2>Your text summary</h2>
-          <p>
-            {
-              text.split(/\s+/).filter((element) => {
-                return element.length !== 0;
-              }).length
-            }{" "}
-            words and {text.length} characters
-          </p>
-          <p>
-            {0.008 *
-              text.split(" ").filter((element) => {
-                return element.length !== 0;
-              }).length}{" "}
-            Minutes read
-          </p>
-          <h2>Preview</h2>
+          <div className="container my-3">
+            <h2>Your text summary</h2>
+            <p>
+              {
+                text.split(/\s+/).filter((element) => {
+                  return element.length !== 0;
+                }).length
+              }{" "}
+              words and {text.length} characters
+            </p>
+            <p>
+              {0.008 *
+                text.split(" ").filter((element) => {
+                  return element.length !== 0;
+                }).length}{" "}
+              Minutes read
+            </p>
+            <h2>Preview</h2>
 
-          <p>{text.length > 0 ? text : "Nothing to preview"}</p>
+            <p>{text.length > 0 ? text : "Nothing to preview"}</p>
+          </div>
         </div>
       </div>
     </>

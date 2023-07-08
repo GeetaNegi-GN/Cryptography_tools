@@ -12,7 +12,7 @@ const Header = () => {
               <a href="/TextForm">TextUtils</a>
             </li>
             <li>
-              <a href="/psdGenerator">Password Generator</a>
+              <a href="/psdGen">Generator</a>
             </li>
             <li>
               <a href="/crypt">Encoder/Decoder</a>

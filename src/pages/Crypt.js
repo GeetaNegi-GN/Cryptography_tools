@@ -121,149 +121,151 @@ function Crypt() {
 
   return (
     <>
-      <h1>Encoder/Decoder</h1>
-      <div className="crypt-container">
-        <div className="crypt-textarea">
-          <label>
-            Text:
-            <input
-              type="text"
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-            />
-          </label>
-        </div>
-        <div className="crypt-output">
-          {<textarea value={encryptedText} readOnly />}
-          <button disabled={!algorithm} onClick={encryptText}>
-            Encrypt
-          </button>
+      <div className="main-container">
+        <h1>Encoder/Decoder</h1>
+        <div className="crypt-container">
+          <div className="crypt-textarea">
+            <label>
+              Text:
+              <input
+                type="text"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+              />
+            </label>
+          </div>
+          <div className="crypt-output">
+            {<textarea value={encryptedText} readOnly />}
+            <button disabled={!algorithm} onClick={encryptText}>
+              Encrypt
+            </button>
 
-          {(algorithm === "cbc" ||
-            algorithm === "cfb" ||
-            algorithm === "ctr" ||
-            algorithm === "ofb" ||
-            algorithm === "ecb" ||
-            algorithm === "des" ||
-            algorithm === "tripleDes" ||
-            algorithm === "rabbit" ||
-            algorithm === "rc4" ||
-            algorithm === "rc4drop" ||
-            algorithm === "cfb") && (
-            <>
-              {<textarea value={decryptedText} readOnly />}
-              <button onClick={decryptText}>Decrypt</button>
-            </>
-          )}
-        </div>
+            {(algorithm === "cbc" ||
+              algorithm === "cfb" ||
+              algorithm === "ctr" ||
+              algorithm === "ofb" ||
+              algorithm === "ecb" ||
+              algorithm === "des" ||
+              algorithm === "tripleDes" ||
+              algorithm === "rabbit" ||
+              algorithm === "rc4" ||
+              algorithm === "rc4drop" ||
+              algorithm === "cfb") && (
+              <>
+                {<textarea value={decryptedText} readOnly />}
+                <button onClick={decryptText}>Decrypt</button>
+              </>
+            )}
+          </div>
 
-        <div className="crypt-btn">
-          <p>
-            Hashing:
-            <button
-              className="tU-btn"
-              onClick={() => handleAlgorithmClick("md5")}
-            >
-              MD5
-            </button>
-            <button
-              className="tU-btn"
-              onClick={() => handleAlgorithmClick("sha1")}
-            >
-              SHA1
-            </button>
-            <button
-              className="tU-btn"
-              onClick={() => handleAlgorithmClick("sha256")}
-            >
-              SHA256
-            </button>
-            <button
-              className="tU-btn"
-              onClick={() => handleAlgorithmClick("sha512")}
-            >
-              SHA512
-            </button>
-            <button
-              className="tU-btn"
-              onClick={() => handleAlgorithmClick("sha3")}
-            >
-              SHA3
-            </button>
-            <button
-              className="tU-btn"
-              onClick={() => handleAlgorithmClick("ripemd")}
-            >
-              RIPEMD160
-            </button>
-          </p>
-          <p>
-            Block Encryption:
-            <button
-              className="tU-btn"
-              onClick={() => handleAlgorithmClick("cbc")}
-            >
-              AES(CBC)
-            </button>
-            <button
-              className="tU-btn"
-              onClick={() => handleAlgorithmClick("cfb")}
-            >
-              AES(CFB)
-            </button>
-            <button
-              className="tU-btn"
-              onClick={() => handleAlgorithmClick("ctr")}
-            >
-              AES(CTR)
-            </button>
-            <button
-              className="tU-btn"
-              onClick={() => handleAlgorithmClick("ofb")}
-            >
-              AES(OFB)
-            </button>
-            <button
-              className="tU-btn"
-              onClick={() => handleAlgorithmClick("ecb")}
-            >
-              AES(ECB)
-            </button>
-            <button
-              className="tU-btn"
-              onClick={() => handleAlgorithmClick("des")}
-            >
-              DES
-            </button>
-            <button
-              className="tU-btn"
-              onClick={() => handleAlgorithmClick("tripleDes")}
-            >
-              TripleDES
-            </button>
-          </p>
+          <div className="crypt-btn">
+            <p>
+              Hashing:
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("md5")}
+              >
+                MD5
+              </button>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("sha1")}
+              >
+                SHA1
+              </button>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("sha256")}
+              >
+                SHA256
+              </button>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("sha512")}
+              >
+                SHA512
+              </button>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("sha3")}
+              >
+                SHA3
+              </button>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("ripemd")}
+              >
+                RIPEMD160
+              </button>
+            </p>
+            <p>
+              Block Encryption:
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("cbc")}
+              >
+                AES(CBC)
+              </button>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("cfb")}
+              >
+                AES(CFB)
+              </button>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("ctr")}
+              >
+                AES(CTR)
+              </button>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("ofb")}
+              >
+                AES(OFB)
+              </button>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("ecb")}
+              >
+                AES(ECB)
+              </button>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("des")}
+              >
+                DES
+              </button>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("tripleDes")}
+              >
+                TripleDES
+              </button>
+            </p>
 
-          <p>
-            Stream encyption:
-            <button
-              className="tU-btn"
-              onClick={() => handleAlgorithmClick("rabbit")}
-            >
-              Rabbit
-            </button>
-            <button
-              className="tU-btn"
-              onClick={() => handleAlgorithmClick("rc4")}
-            >
-              RC4
-            </button>
-            <button
-              className="tU-btn"
-              onClick={() => handleAlgorithmClick("rc4drop")}
-            >
-              RC4Drop
-            </button>
-          </p>
+            <p>
+              Stream encyption:
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("rabbit")}
+              >
+                Rabbit
+              </button>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("rc4")}
+              >
+                RC4
+              </button>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("rc4drop")}
+              >
+                RC4Drop
+              </button>
+            </p>
+          </div>
         </div>
       </div>
     </>
