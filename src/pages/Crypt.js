@@ -121,6 +121,160 @@ function Crypt() {
 
   return (
     <>
+      <div className="main-side-container">
+        <h2 className="side-container-heading">Hashing</h2>
+
+        <div className="side-list">
+          <ul className="side-container">
+            <li>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("md5")}
+              >
+                MD5
+              </button>
+            </li>
+            <li>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("sha1")}
+              >
+                SHA1
+              </button>
+            </li>
+            <li>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("sha256")}
+              >
+                SHA256
+              </button>
+            </li>
+
+            <li>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("sha512")}
+              >
+                SHA512
+              </button>
+            </li>
+
+            <li>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("sha3")}
+              >
+                SHA3
+              </button>
+            </li>
+            <li>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("ripemd")}
+              >
+                RIPEMD160
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <div className="heading">
+          <h2 className="side-container-heading"> Block Encryption</h2>
+        </div>
+        <div className="side-list">
+          <ul className="side-container">
+            <li>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("cbc")}
+              >
+                AES(CBC)
+              </button>
+            </li>
+            <li>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("cfb")}
+              >
+                AES(CFB)
+              </button>
+            </li>
+            <li>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("ctr")}
+              >
+                AES(CTR)
+              </button>
+            </li>
+
+            <li>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("ofb")}
+              >
+                AES(OFB)
+              </button>
+            </li>
+            <li>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("ecb")}
+              >
+                AES(ECB)
+              </button>
+            </li>
+            <li>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("des")}
+              >
+                DES
+              </button>
+            </li>
+            <li>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("tripleDes")}
+              >
+                TripleDES
+              </button>
+            </li>
+          </ul>
+        </div>
+        <div className="heading">
+          <h2 className="side-container-heading"> Stream encyption</h2>
+        </div>
+        <div className="side-list">
+          <ul className="side-container">
+            <li>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("rabbit")}
+              >
+                Rabbit
+              </button>
+            </li>
+            <li>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("rc4")}
+              >
+                RC4
+              </button>
+            </li>
+            <li>
+              <button
+                className="tU-btn"
+                onClick={() => handleAlgorithmClick("rc4drop")}
+              >
+                RC4Drop
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
       <div className="main-container">
         <h1>Encoder/Decoder</h1>
         <div className="crypt-container">
@@ -156,115 +310,6 @@ function Crypt() {
                 <button onClick={decryptText}>Decrypt</button>
               </>
             )}
-          </div>
-
-          <div className="crypt-btn">
-            <p>
-              Hashing:
-              <button
-                className="tU-btn"
-                onClick={() => handleAlgorithmClick("md5")}
-              >
-                MD5
-              </button>
-              <button
-                className="tU-btn"
-                onClick={() => handleAlgorithmClick("sha1")}
-              >
-                SHA1
-              </button>
-              <button
-                className="tU-btn"
-                onClick={() => handleAlgorithmClick("sha256")}
-              >
-                SHA256
-              </button>
-              <button
-                className="tU-btn"
-                onClick={() => handleAlgorithmClick("sha512")}
-              >
-                SHA512
-              </button>
-              <button
-                className="tU-btn"
-                onClick={() => handleAlgorithmClick("sha3")}
-              >
-                SHA3
-              </button>
-              <button
-                className="tU-btn"
-                onClick={() => handleAlgorithmClick("ripemd")}
-              >
-                RIPEMD160
-              </button>
-            </p>
-            <p>
-              Block Encryption:
-              <button
-                className="tU-btn"
-                onClick={() => handleAlgorithmClick("cbc")}
-              >
-                AES(CBC)
-              </button>
-              <button
-                className="tU-btn"
-                onClick={() => handleAlgorithmClick("cfb")}
-              >
-                AES(CFB)
-              </button>
-              <button
-                className="tU-btn"
-                onClick={() => handleAlgorithmClick("ctr")}
-              >
-                AES(CTR)
-              </button>
-              <button
-                className="tU-btn"
-                onClick={() => handleAlgorithmClick("ofb")}
-              >
-                AES(OFB)
-              </button>
-              <button
-                className="tU-btn"
-                onClick={() => handleAlgorithmClick("ecb")}
-              >
-                AES(ECB)
-              </button>
-              <button
-                className="tU-btn"
-                onClick={() => handleAlgorithmClick("des")}
-              >
-                DES
-              </button>
-              <button
-                className="tU-btn"
-                onClick={() => handleAlgorithmClick("tripleDes")}
-              >
-                TripleDES
-              </button>
-            </p>
-
-            <p>
-              Stream encyption:
-              <button
-                className="tU-btn"
-                onClick={() => handleAlgorithmClick("rabbit")}
-              >
-                Rabbit
-              </button>
-              <button
-                className="tU-btn"
-                onClick={() => handleAlgorithmClick("rc4")}
-              >
-                RC4
-              </button>
-              <button
-                className="tU-btn"
-                onClick={() => handleAlgorithmClick("rc4drop")}
-              >
-                RC4Drop
-              </button>
-            </p>
           </div>
         </div>
       </div>

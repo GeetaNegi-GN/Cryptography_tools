@@ -25,17 +25,26 @@ const Generator = () => {
   return (
     <>
       <div className="main-container">
-        <div className="generator-container">
-          <button className="tU-btn" onClick={handleClick1}>
-            Password Generator
-          </button>
+        <div className="main-side-container">
+          <ul className="side-container">
+            <li>
+              {" "}
+              <button className="tU-btn" onClick={handleClick1}>
+                Password Generator
+              </button>
+            </li>
 
-          <button className="tU-btn" onClick={handleClick2}>
-            Lorem Generator
-          </button>
-          <button className="tU-btn" onClick={handleClick3}>
-            Qr Generator
-          </button>
+            <li>
+              <button className="tU-btn" onClick={handleClick2}>
+                Lorem Generator
+              </button>
+            </li>
+            <li>
+              <button className="tU-btn" onClick={handleClick3}>
+                Qr Generator
+              </button>
+            </li>
+          </ul>
         </div>
         <div>
           {showPsd && <PsdGenerator />}

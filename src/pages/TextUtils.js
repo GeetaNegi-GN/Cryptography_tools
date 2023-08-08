@@ -56,6 +56,83 @@ export default function TextForm(props) {
     <>
       <div className="main-container">
         <h1>{props.heading}</h1>
+        <div className="main-side-container">
+          <ul className="side-container">
+            <li>
+              <button
+                disabled={text.length === 0}
+                className="tU-btn"
+                onClick={handleUpClick}
+              >
+                Convert to UPPERCASE
+              </button>
+            </li>
+            <li>
+              <button
+                disabled={text.length === 0}
+                className="tU-btn"
+                onClick={handleLoClick}
+              >
+                Convert to lowercase
+              </button>
+            </li>
+            <li>
+              <button
+                disabled={text.length === 0}
+                className="tU-btn"
+                onClick={handleCopy}
+              >
+                Copy text
+              </button>
+            </li>
+            <li>
+              <button
+                disabled={text.length === 0}
+                className="tU-btn"
+                onClick={handleClearClick}
+              >
+                Clear Text
+              </button>
+            </li>
+            <li>
+              <button
+                disabled={text.length === 0}
+                className="tU-btn"
+                onClick={handleExtraSpaces}
+              >
+                Remove Extra Spaces
+              </button>
+            </li>
+            <li>
+              <button
+                disabled={text.length === 0}
+                className="tU-btn"
+                onClick={handleReplace}
+              >
+                Replace word
+              </button>
+            </li>
+            <li>
+              <button
+                disabled={text.length === 0}
+                className="tU-btn"
+                onClick={handleBinaryClick}
+              >
+                Text to Binary
+              </button>
+            </li>
+            <li>
+              <button
+                disabled={text.length === 0}
+                className="tU-btn"
+                onClick={handleHexClick}
+              >
+                Text to Hexdecimal
+              </button>
+            </li>
+          </ul>
+        </div>
+
         <div className="textutil-container">
           <div className="tU-container">
             <div className="tU-form">
@@ -68,7 +145,7 @@ export default function TextForm(props) {
                 rows="10"
               ></textarea>
             </div>
-            <div className="tU-btn-container">
+            {/* <div className="tU-btn-container">
               <button
                 disabled={text.length === 0}
                 className="tU-btn"
@@ -126,7 +203,7 @@ export default function TextForm(props) {
               >
                 Text to Hexdecimal
               </button>
-            </div>
+            </div> */}
           </div>
           <div className="container my-3">
             <h2>Your text summary</h2>
