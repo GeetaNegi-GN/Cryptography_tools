@@ -122,10 +122,9 @@ function Crypt() {
   return (
     <>
       <div className="main-side-container">
-        <h2 className="side-container-heading">Hashing</h2>
-
         <div className="side-list">
-          <ul className="side-container">
+          <ul className="side-container side-crypt">
+            <h2 className="side-container-heading">Hashing</h2>
             <li>
               <button
                 className="tU-btn"
@@ -150,7 +149,6 @@ function Crypt() {
                 SHA256
               </button>
             </li>
-
             <li>
               <button
                 className="tU-btn"
@@ -159,7 +157,6 @@ function Crypt() {
                 SHA512
               </button>
             </li>
-
             <li>
               <button
                 className="tU-btn"
@@ -179,11 +176,9 @@ function Crypt() {
           </ul>
         </div>
 
-        <div className="heading">
-          <h2 className="side-container-heading"> Block Encryption</h2>
-        </div>
         <div className="side-list">
-          <ul className="side-container">
+          <ul className="side-container side-crypt">
+            <h2 className="side-container-heading"> Block Encryption</h2>
             <li>
               <button
                 className="tU-btn"
@@ -243,11 +238,10 @@ function Crypt() {
             </li>
           </ul>
         </div>
-        <div className="heading">
-          <h2 className="side-container-heading"> Stream encyption</h2>
-        </div>
+
         <div className="side-list">
-          <ul className="side-container">
+          <ul className="side-container side-crypt">
+            <h2 className="side-container-heading"> Stream encyption</h2>
             <li>
               <button
                 className="tU-btn"
@@ -280,7 +274,8 @@ function Crypt() {
         <div className="crypt-container">
           <div className="crypt-textarea">
             <label>
-              Text:
+              Enter Your Text Below:
+              <br />
               <input
                 type="text"
                 value={text}
@@ -289,27 +284,33 @@ function Crypt() {
             </label>
           </div>
           <div className="crypt-output">
-            {<textarea value={encryptedText} readOnly />}
-            <button disabled={!algorithm} onClick={encryptText}>
-              Encrypt
-            </button>
+            <div className="c-encrypt">
+              <button disabled={!algorithm} onClick={encryptText}>
+                Encrypt
+              </button>{" "}
+              <br />
+              {<textarea value={encryptedText} readOnly />}
+            </div>
 
-            {(algorithm === "cbc" ||
-              algorithm === "cfb" ||
-              algorithm === "ctr" ||
-              algorithm === "ofb" ||
-              algorithm === "ecb" ||
-              algorithm === "des" ||
-              algorithm === "tripleDes" ||
-              algorithm === "rabbit" ||
-              algorithm === "rc4" ||
-              algorithm === "rc4drop" ||
-              algorithm === "cfb") && (
-              <>
-                {<textarea value={decryptedText} readOnly />}
-                <button onClick={decryptText}>Decrypt</button>
-              </>
-            )}
+            <div className="c-decrypt">
+              {(algorithm === "cbc" ||
+                algorithm === "cfb" ||
+                algorithm === "ctr" ||
+                algorithm === "ofb" ||
+                algorithm === "ecb" ||
+                algorithm === "des" ||
+                algorithm === "tripleDes" ||
+                algorithm === "rabbit" ||
+                algorithm === "rc4" ||
+                algorithm === "rc4drop" ||
+                algorithm === "cfb") && (
+                <>
+                  <button onClick={decryptText}>Decrypt</button>
+                  <br />
+                  {<textarea value={decryptedText} readOnly />}
+                </>
+              )}
+            </div>
           </div>
         </div>
       </div>

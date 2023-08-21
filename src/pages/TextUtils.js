@@ -59,74 +59,42 @@ export default function TextForm(props) {
         <div className="main-side-container">
           <ul className="side-container">
             <li>
-              <button
-                disabled={text.length === 0}
-                className="tU-btn"
-                onClick={handleUpClick}
-              >
+              <button className="tU-btn" onClick={handleUpClick}>
                 Convert to UPPERCASE
               </button>
             </li>
             <li>
-              <button
-                disabled={text.length === 0}
-                className="tU-btn"
-                onClick={handleLoClick}
-              >
+              <button className="tU-btn" onClick={handleLoClick}>
                 Convert to lowercase
               </button>
             </li>
             <li>
-              <button
-                disabled={text.length === 0}
-                className="tU-btn"
-                onClick={handleCopy}
-              >
+              <button className="tU-btn" onClick={handleCopy}>
                 Copy text
               </button>
             </li>
             <li>
-              <button
-                disabled={text.length === 0}
-                className="tU-btn"
-                onClick={handleClearClick}
-              >
+              <button className="tU-btn" onClick={handleClearClick}>
                 Clear Text
               </button>
             </li>
             <li>
-              <button
-                disabled={text.length === 0}
-                className="tU-btn"
-                onClick={handleExtraSpaces}
-              >
+              <button className="tU-btn" onClick={handleExtraSpaces}>
                 Remove Extra Spaces
               </button>
             </li>
             <li>
-              <button
-                disabled={text.length === 0}
-                className="tU-btn"
-                onClick={handleReplace}
-              >
+              <button className="tU-btn" onClick={handleReplace}>
                 Replace word
               </button>
             </li>
             <li>
-              <button
-                disabled={text.length === 0}
-                className="tU-btn"
-                onClick={handleBinaryClick}
-              >
+              <button className="tU-btn" onClick={handleBinaryClick}>
                 Text to Binary
               </button>
             </li>
             <li>
-              <button
-                disabled={text.length === 0}
-                className="tU-btn"
-                onClick={handleHexClick}
-              >
+              <button className="tU-btn" onClick={handleHexClick}>
                 Text to Hexdecimal
               </button>
             </li>
@@ -147,21 +115,21 @@ export default function TextForm(props) {
             </div>
             {/* <div className="tU-btn-container">
               <button
-                disabled={text.length === 0}
+               
                 className="tU-btn"
                 onClick={handleUpClick}
               >
                 Convert to UPPERCASE
               </button>
               <button
-                disabled={text.length === 0}
+               
                 className="tU-btn"
                 onClick={handleLoClick}
               >
                 Convert to lowercase
               </button>
               <button
-                disabled={text.length === 0}
+               
                 className="tU-btn"
                 onClick={handleCopy}
               >
@@ -169,35 +137,35 @@ export default function TextForm(props) {
               </button>
 
               <button
-                disabled={text.length === 0}
+               
                 className="tU-btn"
                 onClick={handleClearClick}
               >
                 Clear Text
               </button>
               <button
-                disabled={text.length === 0}
+               
                 className="tU-btn"
                 onClick={handleExtraSpaces}
               >
                 Remove Extra Spaces
               </button>
               <button
-                disabled={text.length === 0}
+               
                 className="tU-btn"
                 onClick={handleReplace}
               >
                 Replace word
               </button>
               <button
-                disabled={text.length === 0}
+               
                 className="tU-btn"
                 onClick={handleBinaryClick}
               >
                 Text to Binary
               </button>
               <button
-                disabled={text.length === 0}
+               
                 className="tU-btn"
                 onClick={handleHexClick}
               >

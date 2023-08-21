@@ -30,9 +30,10 @@ color: white;
 
 .logo{
   width: 20%;
-    display: flex;
-    justify-content: left;
-
+    /* display: flex;
+    justify-content: left; */
+    position: absolute;
+    left: 50px;
 
  font-size: 15pt;
  font-family: Georgia, 'Times New Roman', Times, serif;
@@ -99,7 +100,7 @@ a{
 .main-side-container{
   display: grid;
   width:315px;
-  height: 675px;
+  min-block-size: -webkit-fill-available;
   border:2px solid black;
   position: absolute;
   left: 0;
@@ -114,11 +115,17 @@ a{
   position: absolute;
   left: 0px;
 }
+.side-crypt{
+  display: contents;
+  margin:none;
+}
 .side-container li{
   padding: 3px;
   margin: 0px 6px;
 }
-
+.side-list{
+  display: grid;
+}
 /* home */
 
 h1{
@@ -126,10 +133,14 @@ h1{
  margin: 20px 0px;
 }
 
+h3{
+  text-align: center; 
+
+}
 .imgContainer{
   display: inline;
   position: fixed;
-  padding: 40px;
+  margin: 22px 20px 20px 34px;
 }
 .imgContainer img{
   
@@ -142,7 +153,7 @@ h1{
   position: fixed;
   width: 700px;
   height: 550px;
-  top: 250px;
+  top: 185px;
   padding-left: 800px;
 }
 
@@ -163,15 +174,79 @@ h1{
   padding: 4px;
   background-color:  #00C9C8
 }
+/* psd generator */
 .psd-container {
   
   display: grid;
   justify-content: center;
+  width:700px
 }
+.psd-label{
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 2px;
+}
+.psd-label input{
+  padding: 2px;
+  margin: 2px;
+}
+ .psd-checkbox{
+ 
+  width: 24px;
+  height: 20px;
+}
+.psd-container button{
+  margin-top: 20px;
+  border: 2px solid black;
+}
+.psd-result textarea{
+  margin: 10px 0px;
+  width: 480px;
+  height: 90px;
+  color:black;
+}
+.psd-result h3{
+  margin-top: 4px;
+}
+
+/* encoder/decoder */
+
 .crypt-container {
   
   display: grid;
   justify-content: center;
+}
+.crypt-container label{
+
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 2px;
+}
+.crypt-output{
+  margin-top: 20px;
+  display: flex;
+
+}
+.crypt-textarea input{
+margin-top: 3px;
+padding: 3px;
+width: 405px;height: 80px;
+border: 2px solid black;
+}
+.crypt-output textarea{
+  width: 198px;
+  height: 100px;
+  margin-top: 10px;
+  border: 2px solid black;
+}
+
+.c-decrypt{
+  margin-left: 6px;
+}
+.c-encrypt{
+  margin-right: 6px;
 }
 .generator-container {
   
@@ -188,4 +263,52 @@ h1{
   display: grid;
   margin: 0 auto;
 
+}
+
+/* /feedback */
+.fb-form-div{
+width: 500px;
+background-color: white;
+color: #000000;
+height: 370px;
+margin: 20px 0px;
+border: 4px solid #00C9C8;
+}
+.fb-form-div h6{
+  margin-top: 30px;
+margin-left: 30px ;
+display: inline-block;
+color:white;
+background-color: black;
+}
+.fb-container{
+  display: grid;
+  justify-content: center;
+  
+}
+
+.fb-label{
+  margin-left: 30px;
+  margin-top: 10px;
+
+    padding: 4px;
+}
+.fb-label label{
+  font-size: 1.5rem;
+    font-weight: 400;
+    margin-right: 40px;
+}
+.fb-input {
+  width: 250px;
+  
+  height: 30px;
+}
+.fb-textarea{
+  height: 100px;   
+  width: 400px;
+}
+.fb-submit{
+  position: relative;
+  left: 140px;
+  margin-top: 40px;
 }

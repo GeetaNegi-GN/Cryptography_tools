@@ -52,7 +52,7 @@ function PsdGenerator() {
       <h1>Random Password Generator</h1>
 
       <div className="psd-container">
-        <label>
+        <label className="psd-label">
           Password Length:
           <input
             type="number"
@@ -61,27 +61,30 @@ function PsdGenerator() {
           />
         </label>
 
-        <label>
+        <label className="psd-label">
           Include Alphabets:
           <input
+            className="psd-checkbox"
             type="checkbox"
             checked={includeAlphabets}
             onChange={handleIncludeAlphabetsChange}
           />
         </label>
 
-        <label>
+        <label className="psd-label">
           Include Numbers:
           <input
+            className="psd-checkbox"
             type="checkbox"
             checked={includeNumbers}
             onChange={handleIncludeNumbersChange}
           />
         </label>
 
-        <label>
+        <label className="psd-label">
           Include Symbols:
           <input
+            className="psd-checkbox"
             type="checkbox"
             checked={includeSymbols}
             onChange={handleIncludeSymbolsChange}
@@ -92,9 +95,9 @@ function PsdGenerator() {
           Generate Password
         </button>
 
-        <div>
+        <div className="psd-result">
           <h3>Generated Password:</h3>
-          <p>{generatedPassword}</p>
+          <textarea value={generatedPassword} readOnly />
         </div>
       </div>
     </>

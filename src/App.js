@@ -3,12 +3,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Header from "./pages/Header";
 //import PsdGenerator from "./pages/PsdGenerator";
-import PsdManager from "./pages/PsdManager";
+// import PsdManager from "./pages/PsdManager";
 import Feedback from "./pages/Feedback";
 import TextForm from "./pages/TextUtils";
 
 import Crypt from "./pages/Crypt";
-import Sidebar from "./pages/Sidebar";
+// import Sidebar from "./pages/Sidebar";
 import Generator from "./pages/Generator";
 
 function App() {
@@ -27,13 +27,13 @@ function App() {
           }
         />
         {/* <Route exact path={"/psdGenerator"} element={<PsdGenerator />} /> */}
-        <Route exact path={"/psdGen"} element={<Generator />}></Route>
+        <Route exact path={"/psdGen"} element={<Generator />} />
         <Route exact path={"/crypt"} element={<Crypt />} />
 
-        <Route exact path={"/psdManager"} element={<PsdManager />} />
+        {/* <Route exact path={"/psdManager"} element={<PsdManager />} /> */}
+
         <Route exact path={"/feedback"} element={<Feedback />} />
       </Routes>
-      <Sidebar />
     </BrowserRouter>
   );
 }
