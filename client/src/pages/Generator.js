@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import PsdGenerator from "./PsdGenerator";
 import Lorem from "./Lorem";
 
+import QRGen from "./QRGen";
+
 const Generator = () => {
   const [showPsd, setShowPsd] = useState(true);
   const [showLorem, setShowLorem] = useState(false);
@@ -49,7 +51,7 @@ const Generator = () => {
         <div>
           {showPsd && <PsdGenerator />}
           {showLorem && <Lorem />}
-          {showQr && <Lorem />}
+          {showQr && <QRGen />}
         </div>
       </div>
     </>

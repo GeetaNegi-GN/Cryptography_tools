@@ -1,87 +1,60 @@
 import React, { useState } from "react";
-import {
-  LoremIpsum,
-  Avatar,
-  fullname,
-  name,
-  surname,
-  username,
-} from "react-lorem-ipsum";
+import LoremIpsum from "react-lorem-ipsum";
 
-const Lorem = () => {
+const options = ["LoremIpsum", "Avatar", "name", "surname", "username"];
+
+function Lorem() {
+  const [selectedOptions, setSelectedOptions] = useState([]);
+
+  const handleOptionToggle = (option) => {
+    if (selectedOptions.includes(option)) {
+      setSelectedOptions(selectedOptions.filter((item) => item !== option));
+    } else {
+      setSelectedOptions([...selectedOptions, option]);
+    }
+  };
+
   return (
     <>
-      {/* 3 */}
-      <div className="user">
-        <div className="full-name">{fullname("female")}</div>
-        <div className="username">{`@${username()}`}</div>
-      </div>
-      {/* 1 */}
-      <div className="text-wrapper">
-        {LoremIpsum({ p: 3 }).map((text) => (
-          <div className="text" key={text}>
-            {text}
+      <h1>Lorem Ipsum Generator</h1>
+      <div className="main-container">
+        <div>
+          {options.map((option) => (
+            <label className="lorem-label" key={option}>
+              <input
+                className="psd-checkbox"
+                type="checkbox"
+                checked={selectedOptions.includes(option)}
+                onChange={() => handleOptionToggle(option)}
+              />
+              {option}
+            </label>
+          ))}
+        </div>
+        <div className="lorem-container">
+          <div style={{ marginTop: "20px" }}>
+            <LoremIpsum
+              p={2}
+              count={2}
+              startWithLoremIpsum={selectedOptions.includes("LoremIpsum")}
+            />
+            {selectedOptions.includes("Avatar") && (
+              <img
+                src="https://i.pinimg.com/originals/ec/5d/5d/ec5d5df9a5f7a37f3b1dd6e5ce993709.jpg"
+                alt="Avatar"
+                width="200px"
+                height="200px"
+              />
+            )}
+
+            {selectedOptions.includes("name") && <p>Name: Kakashi</p>}
+            {selectedOptions.includes("surname") && <p>Surname: Hatake</p>}
+            {selectedOptions.includes("username") && <p>Username: Hokage</p>}
           </div>
-        ))}
+        </div>
       </div>
-      {/* 2 */}
-      <div className="user">
-        // All props will be directly transferred to img element
-        <Avatar
-          gender="male"
-          className="avatar"
-          width="200"
-          height="200"
-          alt="Avatar"
-        />
-        <div className="name">{name("male")}</div>
-        <div className="surname">{surname()}</div>
-        <div className="username">{username()}</div>
-      </div>
-      ,
     </>
-    // <div className="text-wrapper">
-    //   <LoremIpsum p={2} />
-    // </div>
   );
-
-  //   const [numParagraphs, setNumParagraphs] = useState(1);
-  //   const [loremText, setLoremText] = useState("");
-
-  //   const generateLorem = () => {
-  //     const lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec molestie odio.
-  //       Phasellus faucibus ante vel mi commodo, in dapibus velit pellentesque. Suspendisse potenti.
-  //       Donec ullamcorper dignissim elit, in consectetur odio pellentesque id. Nunc eget lacus feugiat,
-  //       bibendum quam vel, vulputate risus. In hac habitasse platea dictumst. Sed euismod nisl eget
-  //       tortor varius, eu cursus est imperdiet. Proin id risus et nisl dignissim posuere a eget quam.
-  //       Nunc convallis consectetur erat, sed auctor mi fermentum at. Vestibulum sodales lectus in tellus
-  //       posuere feugiat. Nullam sed nibh ut ipsum dapibus congue. Vivamus id eleifend velit, et venenatis
-  //       tellus. Integer aliquet neque elit, eu dapibus ipsum tristique id.`;
-
-  //     const paragraphs = lorem.split("\n").map((paragraph) => paragraph.trim());
-
-  //     let generatedLorem = "";
-  //     for (let i = 0; i < numParagraphs; i++) {
-  //       const randomIndex = Math.floor(Math.random() * paragraphs.length);
-  //       generatedLorem += paragraphs[randomIndex] + "\n\n";
-  //     }
-
-  //     setLoremText(generatedLorem);
-  //   };
-
-  //   return (
-  //     <div>
-  //       <h2>Lorem Generator</h2>
-  //       <label>Number of paragraphs:</label>
-  //       <input
-  //         type="number"
-  //         value={numParagraphs}
-  //         onChange={(e) => setNumParagraphs(parseInt(e.target.value))}
-  //       />
-  //       <button onClick={generateLorem}>Generate Lorem</button>
-  //       <p>{loremText}</p>
-  //     </div>
-  //   );
-};
+}
 
 export default Lorem;

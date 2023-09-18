@@ -7,10 +7,10 @@ app.use(bodyParser.json());
 
 // Configure Nodemailer
 const transporter = nodemailer.createTransport({
-  service: "Gmail", // e.g., Gmail, Yahoo, etc.
+  service: "Gmail",
   auth: {
-    user: "",
-    pass: "",
+    user: "askgeeta.negi@gmail.com",
+    pass: "pandzmdlqrotjblo",
   },
 });
 
@@ -19,8 +19,8 @@ app.post("/api/submit-feedback", (req, res) => {
   const { name, email, message } = req.body;
 
   const mailOptions = {
-    from: "your-email@example.com",
-    to: "recipient@example.com", // Email address where you want to receive feedback
+    from: "feedback@gmail.com",
+    to: "askgeeta.negi@gmail.com",
     subject: "New Feedback from Your Website",
     text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
   };

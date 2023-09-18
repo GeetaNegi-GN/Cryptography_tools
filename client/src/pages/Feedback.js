@@ -5,17 +5,25 @@ function Feedback() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [feedbackStatus, setFeedbackStatus] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await axios.post("/api/submit-feedback", { name, email, message });
-      alert("Feedback submitted successfully!");
-      // You can clear the form fields here
+      if (name.trim() === "" || email.trim() === "" || message.trim() === "") {
+        setFeedbackStatus("Please fill in all the fields.");
+      } else {
+        await axios.post("/api/submit-feedback", { name, email, message });
+
+        setName("");
+        setEmail("");
+        setMessage("");
+
+        setFeedbackStatus("Feedback submitted successfully!");
+      }
     } catch (error) {
-      console.error("Error submitting feedback:", error);
-      alert("Error submitting feedback. Please try again.");
+      setFeedbackStatus("Error submitting feedback. Please try again.");
     }
   };
 
@@ -56,8 +64,14 @@ function Feedback() {
             Submit Feedback
           </button>
         </form>
-        <h6>{message}</h6>
       </div>
+      {feedbackStatus && (
+        <div>
+          <h2>
+            <b>{feedbackStatus}</b>
+          </h2>
+        </div>
+      )}
     </div>
   );
 }
